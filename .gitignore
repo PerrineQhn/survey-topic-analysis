@@ -1,3 +1,4 @@
 /stellantis_survey/
 /scripts/__pycache__/
 /.vscode/
+.DS_Store
