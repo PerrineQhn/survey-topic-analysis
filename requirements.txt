@@ -1,0 +1,11 @@
+python==3.12
+transformers==4.46.2
+pandas==2.2.3
+scikit-learn==1.5.2
+numpy==1.26.4
+bertopic==0.16.4
+nltk==3.9.1
+openpyxl==3.1.5
+torch==2.5.1
+streamlit==1.40.0
+watchdog==6.0.0
