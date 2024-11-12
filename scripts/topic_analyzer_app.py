@@ -7,7 +7,7 @@ extract topics using BERTopic, display topic distribution, and quality metrics, 
 Users can also provide feedback on topics, update labels, and view feedback history.
 
 Usage:
-    streamlit run topic_analyzer_app.py
+    streamlit run scripts/topic_analyzer_app.py
 
 """
 
