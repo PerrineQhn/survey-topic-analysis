@@ -79,7 +79,7 @@ The system consists of several key components:
 ## Dependencies
 
 ```plaintext
-Python 3.12
+Python 3.12.2
 transformers
 pandas
 numpy
@@ -89,7 +89,6 @@ torch
 plotly
 nltk
 openpyxl
-watchdog
 ```
 
 ## Installation
@@ -123,7 +122,7 @@ nltk.download('stopwords')
 
 1. Start the Streamlit app:
 ```bash
-streamlit run topic_analyzer_app.py
+streamlit run scripts/topic_analyzer_app.py
 ```
 
 2. Upload your Excel file containing survey data
