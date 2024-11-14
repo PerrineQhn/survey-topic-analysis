@@ -1,0 +1,448 @@
+{
+  "sessions": {
+    "20241110_224431": [
+      {
+        "topic_id": 0,
+        "type": "guidance",
+        "content": {
+          "timestamp": "2024-11-10 22:44:45",
+          "type": "guidance",
+          "changes": {
+            "guidance": "focus on drinks and snacks"
+          }
+        },
+        "timestamp": "2024-11-10 22:44:45"
+      },
+      {
+        "topic_id": 0,
+        "type": "keyword_edit",
+        "content": {
+          "timestamp": "2024-11-10 22:44:55",
+          "type": "keyword_edit",
+          "changes": {
+            "keywords": [
+              "alcohol"
+            ]
+          }
+        },
+        "timestamp": "2024-11-10 22:44:55"
+      }
+    ],
+    "20241111_123843": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 12:59:01",
+          "type": "rename",
+          "changes": {
+            "name": "Snacks and Drinks"
+          }
+        },
+        "timestamp": "2024-11-11 12:59:01"
+      },
+      {
+        "topic_id": 1,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 12:59:16",
+          "type": "rename",
+          "changes": {
+            "name": "Popcorn and theater drinks"
+          }
+        },
+        "timestamp": "2024-11-11 12:59:16"
+      },
+      {
+        "topic_id": 1,
+        "type": "keyword_edit",
+        "content": {
+          "timestamp": "2024-11-11 12:59:42",
+          "type": "keyword_edit",
+          "changes": {
+            "keywords": [
+              "good",
+              "abordable"
+            ]
+          }
+        },
+        "timestamp": "2024-11-11 12:59:42"
+      },
+      {
+        "topic_id": 0,
+        "type": "comment",
+        "content": {
+          "timestamp": "2024-11-11 13:00:08",
+          "type": "comment",
+          "changes": {
+            "description": "Focus on snacks and drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:00:08"
+      }
+    ],
+    "20241111_130423": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 13:04:32",
+          "type": "rename",
+          "changes": {
+            "name": "Snacks and Drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:04:32"
+      },
+      {
+        "topic_id": 1,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 13:04:41",
+          "type": "rename",
+          "changes": {
+            "name": "Popcorn and Theater Drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:04:41"
+      },
+      {
+        "topic_id": 1,
+        "type": "keyword_edit",
+        "content": {
+          "timestamp": "2024-11-11 13:04:56",
+          "type": "keyword_edit",
+          "changes": {
+            "keywords": [
+              "good",
+              "abordable"
+            ]
+          }
+        },
+        "timestamp": "2024-11-11 13:04:56"
+      },
+      {
+        "topic_id": 0,
+        "type": "comment",
+        "content": {
+          "timestamp": "2024-11-11 13:05:16",
+          "type": "comment",
+          "changes": {
+            "description": "focus on snacks and drinks in the responses"
+          }
+        },
+        "timestamp": "2024-11-11 13:05:16"
+      }
+    ],
+    "20241111_130650": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 13:06:58",
+          "type": "rename",
+          "changes": {
+            "name": "snacks and drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:06:58"
+      },
+      {
+        "topic_id": 1,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 13:07:07",
+          "type": "rename",
+          "changes": {
+            "name": "popcorn and theater drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:07:07"
+      },
+      {
+        "topic_id": 0,
+        "type": "comment",
+        "content": {
+          "timestamp": "2024-11-11 13:07:19",
+          "type": "comment",
+          "changes": {
+            "description": "focus on snacks and drinks"
+          }
+        },
+        "timestamp": "2024-11-11 13:07:19"
+      }
+    ],
+    "20241111_134602": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 13:46:13",
+          "type": "rename",
+          "changes": {
+            "name": {
+              "from": "0_snacks_options_drinks_variety",
+              "to": "Snacks and Drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_options_drinks_variety",
+            "keywords": [
+              "snacks",
+              "options",
+              "drinks",
+              "variety",
+              "selection",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "cocktails",
+              "themed"
+            ],
+            "description": null,
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-11 13:46:13"
+      }
+    ],
+    "20241111_141149": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-11 14:12:07",
+          "type": "rename",
+          "changes": {
+            "name": {
+              "from": "0_snacks_drinks_options_selection",
+              "to": "Snacks and Drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-11 14:12:07"
+      },
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-11 14:12:40",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "this topic focus on variety and price of snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "Snacks and Drinks",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-11 14:12:40"
+      }
+    ],
+    "20241111_141731": [
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-11 14:18:37",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "Focus on quality of the drinks and snacks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-11 14:18:37"
+      }
+    ],
+    "20241111_143008": [
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-11 14:30:36",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "focus on high prices"
+            }
+          },
+          "previous_state": {
+            "name": "0_high_options_snacks_prices",
+            "keywords": [
+              "high",
+              "options",
+              "snacks",
+              "prices",
+              "bit",
+              "overpriced",
+              "area",
+              "bar",
+              "near",
+              "healthy"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-11 14:30:36"
+      }
+    ],
+    "20241114_173249": [
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-14 17:33:59",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "focus on snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:33:59"
+      }
+    ],
+    "20241114_173524": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-14 17:35:36",
+          "type": "rename",
+          "changes": {
+            "name": {
+              "from": "0_snacks_drinks_options_selection",
+              "to": "snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:35:36"
+      },
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-14 17:35:52",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "focus on snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "snacks and drinks",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:35:52"
+      }
+    ]
+  },
+  "topic_updates": {
+    "0": "Snacks and Drinks",
+    "1": "Popcorn and Theater Drinks"
+  }
+}

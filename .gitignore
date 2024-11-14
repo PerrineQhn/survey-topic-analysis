@@ -1,0 +1,5 @@
+/stellantis_venv/
+/scripts/__pycache__/
+/.vscode/
+.DS_Store
+data/.~lock.NLP_LLM_survey_example_1.xlsx#
