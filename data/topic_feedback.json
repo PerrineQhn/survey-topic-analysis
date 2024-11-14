@@ -339,6 +339,106 @@
         },
         "timestamp": "2024-11-11 14:30:36"
       }
+    ],
+    "20241114_173249": [
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-14 17:33:59",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "focus on snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:33:59"
+      }
+    ],
+    "20241114_173524": [
+      {
+        "topic_id": 0,
+        "type": "rename",
+        "content": {
+          "timestamp": "2024-11-14 17:35:36",
+          "type": "rename",
+          "changes": {
+            "name": {
+              "from": "0_snacks_drinks_options_selection",
+              "to": "snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "0_snacks_drinks_options_selection",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:35:36"
+      },
+      {
+        "topic_id": 0,
+        "type": "guidance update",
+        "content": {
+          "timestamp": "2024-11-14 17:35:52",
+          "type": "guidance update",
+          "changes": {
+            "guidance": {
+              "from": null,
+              "to": "focus on snacks and drinks"
+            }
+          },
+          "previous_state": {
+            "name": "snacks and drinks",
+            "keywords": [
+              "snacks",
+              "drinks",
+              "options",
+              "selection",
+              "variety",
+              "service",
+              "refreshing",
+              "good",
+              "alcoholic",
+              "decent"
+            ],
+            "comment": [],
+            "guidance": null
+          }
+        },
+        "timestamp": "2024-11-14 17:35:52"
+      }
     ]
   },
   "topic_updates": {

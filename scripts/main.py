@@ -7,10 +7,9 @@ It supports interactive feedback, topic tagging, and LLM-based analysis.
 
 import argparse
 import os
-from typing import Tuple, Dict, Any
+from dataclasses import dataclass
 
 import pandas as pd
-from dataclasses import dataclass
 
 from data_loader import DataLoader
 from topic_extraction import topics_extraction_process
@@ -21,7 +20,6 @@ class AnalysisResults:
     """Container for analysis results"""
 
     processed_df: pd.DataFrame
-    topic_info: pd.DataFrame
 
 
 class SurveyAnalyzer:
@@ -30,9 +28,6 @@ class SurveyAnalyzer:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
         """Initialize the SurveyAnalyzer class."""
         self.model_name = model_name
-        self.topic_extractor = None
-        self.tagger = None
-        self.feedback_manager = None
         self.results = None
 
     def load_data(self, file_path: str) -> pd.DataFrame:
@@ -47,13 +42,13 @@ class SurveyAnalyzer:
             print(f"Error loading data: {str(e)}")
             raise
 
-    def analyze_topics(self, df: pd.DataFrame, column_name: str, min_probabiliy:float) -> pd.DataFrame:
+    def analyze_topics(self, df: pd.DataFrame, column_name: str, min_probability: float) -> pd.DataFrame:
         """Process topics for a specific column
 
         Args:
             df: Input DataFrame
             column_name: Name of the column to analyze
-            min_probabiliy: Minimum probability threshold for topic assignment
+            min_probability: Minimum probability threshold for topic assignment
 
         Returns:
             Processed DataFrame with topic analysis
@@ -61,13 +56,11 @@ class SurveyAnalyzer:
         try:
             # Process topics
             processed_df = topics_extraction_process(
-                df=df, column_name=column_name, model_name=self.model_name, min_probability=min_probabiliy
+                df=df, column_name=column_name, model_name=self.model_name, min_probability=min_probability
             )
 
             # Store results
-            self.results = AnalysisResults(
-                processed_df=processed_df, topic_info=processed_df
-            )
+            self.results = AnalysisResults(processed_df=processed_df)
 
             return processed_df
 
@@ -110,11 +103,7 @@ def main(args: argparse.Namespace) -> None:
         print("Analysis completed successfully!")
 
         # Save results
-        output_dir = "output"
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-
-        analyzer.save_results(output_dir)
+        analyzer.save_results("output")
 
     except Exception as e:
         print(f"Analysis failed: {str(e)}")
@@ -134,10 +123,6 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--column_name", type=str, required=True, help="Name of column to analyze"
-    )
-
-    parser.add_argument(
-        "--num_topics", type=int, default=5, help="Number of topics to extract"
     )
 
     parser.add_argument(
