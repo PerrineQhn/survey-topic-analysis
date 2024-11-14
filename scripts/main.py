@@ -3,6 +3,9 @@ NLP Survey Analysis Application
 
 This script processes survey data to extract and analyze topics from text responses.
 It supports interactive feedback, topic tagging, and LLM-based analysis.
+
+Example:
+    $ python scripts/main.py --file_path data/NLP_LLM_survey_example_1.xlsx --column_name "Satisfaction (What did you like about the food/drinks?)"
 """
 
 import argparse
@@ -15,8 +18,6 @@ import nltk
 
 from data_loader import DataLoader
 from topic_extraction import topics_extraction_process
-
-
 
 
 @dataclass
