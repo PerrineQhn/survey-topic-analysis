@@ -2,4 +2,7 @@
 /scripts/__pycache__/
 /.vscode/
 .DS_Store
+output/.DS_Store
+documentation/.DS_Store
+data/.DS_Store
 data/.~lock.NLP_LLM_survey_example_1.xlsx#
