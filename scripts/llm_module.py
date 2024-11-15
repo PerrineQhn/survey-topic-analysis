@@ -1,3 +1,15 @@
+"""
+Script for implementing a unified interface for Large Language Models (LLMs).
+
+This script defines an abstract base class `LLMInterface` to standardize interaction with 
+various LLM models for generating embeddings and retrieving model information. It provides 
+implementations for:
+
+1. Sentence Transformer models using the `sentence-transformers` library.
+2. Hugging Face Transformers models using the `transformers` library.
+
+"""
+
 from abc import ABC, abstractmethod
 import numpy as np
 import torch
@@ -125,18 +137,3 @@ def get_llm_model(model_type: str = "sentence-transformer", model_name: str = No
     else:
         raise ValueError(f"Unknown model type: {model_type}")
 
-# Example for implementing custom LLM:
-"""
-class CustomLLM(LLMInterface):
-    def __init__(self, **kwargs):
-        # Initialize your custom LLM here
-        pass
-        
-    def generate_embeddings(self, texts: List[str]) -> np.ndarray:
-        # Implement embedding generation
-        pass
-        
-    def get_model_info(self) -> Dict[str, Any]:
-        # Return model information
-        pass
-"""

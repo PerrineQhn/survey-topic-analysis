@@ -292,7 +292,7 @@ class TopicTaggerEnhanced:
         self,
         text: str,
         embeddings_cache: Dict[str, np.ndarray] = None,
-        debug: bool = False,  # Debug désactivé par défaut
+        debug: bool = False,  # Collect detailed scoring information for debugging
     ) -> Tuple[List[int], Dict[int, float], Optional[Dict]]:
         """
         Tag a response with relevant topics.
@@ -368,7 +368,7 @@ class TopicTaggerEnhanced:
         df: pd.DataFrame,
         text_column: str,
         batch_size: int = 32,
-        include_scores: bool = False,  # Option pour inclure les scores détaillés
+        include_scores: bool = False,  # Include detailed scores
     ) -> pd.DataFrame:
         """
         Process a dataset to assign topics.

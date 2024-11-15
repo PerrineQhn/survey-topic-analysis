@@ -275,7 +275,7 @@ def clean_and_extract_texts(
 
 def display_extracted_topics(
     topic_extractor: TopicExtractorBERTopic, topics: List[int]
-):
+) -> None:
     """Display extracted topics and their keywords.
 
     Args:
@@ -295,7 +295,7 @@ def process_feedback(
     topic_extractor: TopicExtractorBERTopic,
     topic_info: pd.DataFrame,
     topic_labels: Dict[int, str],
-):
+) -> None:
     """Manage user feedback and update topic labels.
 
     Args:
@@ -326,7 +326,7 @@ def process_feedback(
                 topic_labels[topic_id] = topic_data.name
 
 
-def save_results(tagging_results, output_path: str):
+def save_results(tagging_results, output_path: str) -> None:
     """Save the tagging results to an Excel file.
 
     Args:

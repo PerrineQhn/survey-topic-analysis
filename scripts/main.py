@@ -23,7 +23,6 @@ from topic_extraction import topics_extraction_process
 @dataclass
 class AnalysisResults:
     """Container for analysis results"""
-
     processed_df: pd.DataFrame
 
 
