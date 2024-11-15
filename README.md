@@ -134,8 +134,8 @@ streamlit run scripts/topic_analyzer_app.py
 
 Run the analysis through the command line:
 ```bash
-python main.py --file_path data/survey_data.csv \
-               --column_name "verbatim-column" \
+python scripts/main.py --file_path data/NLP_LLM_survey_example_1.xlsx \
+               --column_name "Satisfaction (What did you like about the food/drinks?)" \
                --num_topics 5 \
                --model_name "all-MiniLM-L6-v2"
 ```
