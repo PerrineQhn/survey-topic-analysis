@@ -79,7 +79,7 @@ The system consists of several key components:
 ## Dependencies
 
 ```plaintext
-Python 3.12.2
+Python 3.12
 transformers
 pandas
 numpy
@@ -95,7 +95,7 @@ openpyxl
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/survey-topic-analysis.git
+git clone https://github.com/PerrineQhn/survey-topic-analysis.git
 cd survey-topic-analysis
 ```
 
@@ -132,7 +132,7 @@ streamlit run scripts/topic_analyzer_app.py
 
 ### Command Line Interface
 
-Run the analysis through the command line:
+Run the analysis through the command line at the root :
 ```bash
 python scripts/main.py --file_path data/NLP_LLM_survey_example_1.xlsx \
                --column_name "Satisfaction (What did you like about the food/drinks?)" \
