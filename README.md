@@ -120,7 +120,7 @@ nltk.download('stopwords')
 
 ### Web Interface
 
-1. Start the Streamlit app:
+1. Start the Streamlit app at the root :
 ```bash
 streamlit run scripts/topic_analyzer_app.py
 ```
