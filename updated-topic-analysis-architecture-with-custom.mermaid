@@ -1,0 +1,139 @@
+classDiagram
+    %% Main Process Flow
+    class main {
+        +main()
+        +process_column(file_path, column_name, model_type, model_name)
+    }
+
+    %% Core Components
+    class TopicAnalyzer {
+        -min_topic_size: int
+        -embedding_model: BaseEmbeddingModel
+        -umap_model: UMAP
+        -hdbscan_model: HDBSCAN
+        -topic_model: BERTopic
+        -data_loader: DataLoader
+        +extract_topics(texts: List[str]) TopicExtractionResults
+        -_embedding_function(texts: List[str]) np.ndarray
+    }
+
+    %% Data Loading
+    class DataLoader {
+        -stop_words: Set
+        +load_data(file_path: str) DataFrame
+        +valid_file(df: DataFrame) bool
+        +preprocess_data(df: DataFrame) DataFrame
+        +clean_text(text: str) str
+    }
+
+    %% Embedding Models Hierarchy
+    class BaseEmbeddingModel {
+        <<abstract>>
+        +initialize(**kwargs)*
+        +embed(documents: list)* np.ndarray
+    }
+
+    class SentenceTransformerEmbedding {
+        -model: SentenceTransformer
+        +initialize(model_name: str)
+        +embed(documents: list) np.ndarray
+    }
+
+    class HuggingFaceEmbedding {
+        -tokenizer: AutoTokenizer
+        -model: AutoModel
+        -device: str
+        +initialize(model_name: str)
+        +embed(documents: list) np.ndarray
+    }
+
+    class CustomEmbedding {
+        -model: Any
+        +initialize(model)
+        +embed(documents: list) np.ndarray
+    }
+
+    %% Topic Management
+    class TopicTagger {
+        -topic_model: BERTopic
+        -min_confidence: float
+        -user_guidance: Dict
+        +tag_responses(texts: List[str]) TopicTagResults
+    }
+
+    class TopicGuidanceManager {
+        -topic_model: BERTopic
+        -topic_tagger: TopicTagger
+        +collect_guidance_after_feedback()
+        +collect_initial_guidance()
+    }
+
+    class TopicFeedbackManager {
+        -topic_model: BERTopic
+        -feedback: TopicFeedback
+        -merged_topics: Dict
+        +get_feedback(topics: List[int]) TopicFeedback
+        +apply_feedback(texts: List[str], topics: List[int]) Tuple
+    }
+
+    %% Result Classes
+    class TopicExtractionResults {
+        +topics: List[int]
+        +topic_info: DataFrame
+        +topic_labels: Dict
+        +embeddings: np.ndarray
+        +topic_embeddings: Dict
+    }
+
+    class TopicTagResults {
+        +assignments: Dict
+        +quality_scores: Dict
+        +multi_label_matrix: DataFrame
+    }
+
+    class TopicFeedback {
+        +merge_suggestions: List
+        +rename_suggestions: Dict
+        +irrelevant_keywords: Dict
+        +additional_keywords: Dict
+    }
+
+    %% Factory Function
+    class get_embedding_model {
+        <<function>>
+        +get_embedding_model(model_type: str, **kwargs) BaseEmbeddingModel
+    }
+
+    %% Relationships
+    main --> TopicAnalyzer : creates and uses
+    main --> process_column : uses directly
+    main --> get_embedding_model : uses
+    
+    process_column --> TopicAnalyzer : configures
+    process_column --> DataLoader : uses
+    process_column --> get_embedding_model : uses
+    
+    TopicAnalyzer --> DataLoader : owns
+    TopicAnalyzer --> BaseEmbeddingModel : uses
+    
+    BaseEmbeddingModel <|-- SentenceTransformerEmbedding
+    BaseEmbeddingModel <|-- HuggingFaceEmbedding
+    BaseEmbeddingModel <|-- CustomEmbedding
+    
+    get_embedding_model ..> SentenceTransformerEmbedding : creates
+    get_embedding_model ..> HuggingFaceEmbedding : creates
+    get_embedding_model ..> CustomEmbedding : creates
+    
+    TopicAnalyzer --> TopicExtractionResults : produces
+    TopicAnalyzer ..> TopicTagger : creates
+    TopicAnalyzer ..> TopicGuidanceManager : creates
+    TopicAnalyzer ..> TopicFeedbackManager : creates
+    
+    TopicTagger --> TopicTagResults : produces
+    TopicTagger --> BERTopic : uses
+    
+    TopicGuidanceManager --> TopicTagger : manages
+    TopicGuidanceManager --> BERTopic : uses
+    
+    TopicFeedbackManager --> BERTopic : modifies
+    TopicFeedbackManager --> TopicFeedback : manages

@@ -1,142 +1,71 @@
-"""
-NLP Survey Analysis Application
-
-This script processes survey data to extract and analyze topics from text responses.
-It supports interactive feedback, topic tagging, and LLM-based analysis.
-
-Example:
-    $ python scripts/main.py --file_path data/NLP_LLM_survey_example_1.xlsx --column_name "Satisfaction (What did you like about the food/drinks?)"
-"""
-
-import argparse
-import os
-from dataclasses import dataclass
-
-import pandas as pd
+from pathlib import Path
 import nltk
+from topic_analyzer import TopicAnalyzer, process_column
+import os
+import pandas as pd
+from sentence_transformers import SentenceTransformer
+from typing import List
+import numpy as np
 
 
-from data_loader import DataLoader
-from topic_extraction import topics_extraction_process
+class MyCustomEmbeddingModel:
+    """Custom embedding model for text data. This class can be replaced with any other embedding model."""
+
+    def __init__(self, base_model_name: str = "YourModel"):
+        # Initialize with a base model
+        self.base_model = SentenceTransformer(base_model_name)
+
+    def embed(self, documents: List[str]) -> np.ndarray:
+        # Custom preprocessing
+        processed_docs = [doc.lower().strip() for doc in documents]
+
+        # Get base embeddings
+        embeddings = self.base_model.encode(processed_docs)
+
+        # Add custom post-processing (e.g., normalization)
+        normalized_embeddings = (
+            embeddings / np.linalg.norm(embeddings, axis=1)[:, np.newaxis]
+        )
+
+        return normalized_embeddings
 
 
-@dataclass
-class AnalysisResults:
-    """Container for analysis results"""
-    processed_df: pd.DataFrame
+def main():
+    """Main function to run topic analysis"""
+    print("Topic Analysis Tool")
+    print("-" * 50)
 
+    file_path = "./data/NLP_LLM_survey_example_1.xlsx"
 
-class SurveyAnalyzer:
-    """Main class for survey analysis operations"""
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"File not found: {file_path}")
 
-    def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
-        """Initialize the SurveyAnalyzer class."""
-        self.model_name = model_name
-        self.results = None
-    
+    # model = MyCustomEmbeddingModel()
+    # embedding_model_type = "custom"
 
-    def load_data(self, file_path: str) -> pd.DataFrame:
-        """Load and preprocess survey data"""
-        try:
-            loader = DataLoader()
-            df = loader.load_data(file_path)
-            df = loader.preprocess_data(df)
-            print(f"Successfully loaded data from {file_path}")
-            return df
-        except Exception as e:
-            print(f"Error loading data: {str(e)}")
-            raise
+    model = "bert-base-uncased"
+    embedding_model_type = "hugging-face"
 
-    def analyze_topics(self, df: pd.DataFrame, column_name: str, min_probability: float) -> pd.DataFrame:
-        """Process topics for a specific column
+    col = "Satisfaction (What did you like about the food/drinks?)"
 
-        Args:
-            df: Input DataFrame
-            column_name: Name of the column to analyze
-            min_probability: Minimum probability threshold for topic assignment
+    # embedding_model_type = "custom/hugging-face/sentence-transformer"
+    # model = "nomDuModel"
+    df = process_column(
+        file_path=file_path,
+        column_name=col,
+        embedding_model_type=embedding_model_type,
+        model=model,
+        model_name=model,
+    )
 
-        Returns:
-            Processed DataFrame with topic analysis
-        """
-        try:
-            # Process topics
-            processed_df = topics_extraction_process(
-                df=df, column_name=column_name, model_name=self.model_name, min_probability=min_probability
-            )
+    while True:
+        choice = input("\nWould you like to analyze another column? (yes/no): ")
+        if choice.lower() != "yes":
+            break
+        df = process_column(file_path)
 
-            # Store results
-            self.results = AnalysisResults(processed_df=processed_df)
-
-            return processed_df
-
-        except Exception as e:
-            print(f"Error in topic analysis: {str(e)}")
-            raise
-
-    def save_results(self, output_dir: str = "output") -> None:
-        """Save analysis results to files
-
-        Args:
-            output_dir: Directory to save results
-        """
-        try:
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir)
-
-            # Save main results
-            output_path = os.path.join(output_dir, "survey_analysis_results.xlsx")
-            self.results.processed_df.to_excel(output_path, index=False)
-
-        except Exception as e:
-            print(f"Error saving results: {str(e)}")
-            raise
-
-
-def main(args: argparse.Namespace) -> None:
-    """Main execution function"""
-    try:
-        
-        # Initialize analyzer
-        analyzer = SurveyAnalyzer(model_name=args.model_name)
-
-        # Load data
-        df = analyzer.load_data(args.file_path)
-
-        # Process topics
-        processed_df = analyzer.analyze_topics(df, args.column_name, 0.2)
-
-        print(processed_df.head())
-        print("Analysis completed successfully!")
-
-        # Save results
-        analyzer.save_results("output")
-
-    except Exception as e:
-        print(f"Analysis failed: {str(e)}")
-        raise
+    print("\nAnalysis complete!")
 
 
 if __name__ == "__main__":
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(
-        description="NLP Survey Analysis Application",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-    )
-
-    parser.add_argument(
-        "--file_path", type=str, required=True, help="Path to survey data file"
-    )
-
-    parser.add_argument(
-        "--column_name", type=str, required=True, help="Name of column to analyze"
-    )
-
-    parser.add_argument(
-        "--model_name",
-        type=str,
-        default="all-MiniLM-L6-v2",
-        help="Name of LLM model to use",
-    )
-
-    args = parser.parse_args()
-    main(args)
+    main()
